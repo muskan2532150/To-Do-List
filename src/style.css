@@ -33,21 +33,24 @@ h1 {
 }
 
 .form-btn,
-input {
+input,
+.list-btn {
   outline: none;
   border: 0;
 }
 
 input {
-  padding: 15px;
+  padding: 25px;
+  font-size: 25px;
 }
 
 input::placeholder {
-  font-size: 20px;
+  font-size: 25px;
   font-style: italic;
 }
 
-.form-btn {
+.form-btn,
+.list-btn {
   background: transparent;
 }
 
@@ -55,6 +58,7 @@ input::placeholder {
   display: flex;
   border-bottom: 2px solid rgb(128 128 128 / 30%);
   padding: 12px;
+  justify-content: space-between;
 }
 
 .list > input {
@@ -66,17 +70,24 @@ input::placeholder {
   font-weight: 600;
 }
 
+i,
+.form-btn {
+  font-size: 25px;
+}
+
 .active {
   text-decoration: line-through;
   color: #d3d3d3;
 }
 
 .clearBtn {
-  /* display: none; */
-  padding: 12px;
-  font-size: 20px;
+  display: none;
+  padding: 20px;
+  font-size: 30px;
   text-align: center;
   border: 0;
   width: 100%;
   color: rgb(60 53 53);
+  margin-top: 12px;
+  text-transform: uppercase;
 }
