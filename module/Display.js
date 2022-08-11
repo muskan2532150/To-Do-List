@@ -16,6 +16,7 @@ export default class Display {
     input1.setAttribute('class', 'displayP');
     input1.setAttribute('value', task.des);
     input1.setAttribute('type', 'text');
+    input1.setAttribute('required', '');
     button.setAttribute('class', 'list-btn ');
     i.setAttribute('class', 'fa-solid fa-trash');
 
