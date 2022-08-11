@@ -2,16 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
- entry: {
-   index: './src/index.js',
-   print: './src/print.js',
- },
- devServer: {
+  entry: {
+    index: './src/index.js',
+  //  print: './src/print.js',
+  },
+  devServer: {
     static: './dist',
   },
- plugins: [
+  plugins: [
     new HtmlWebpackPlugin({
-      template:'./src/index.html',
+      template: './src/index.html',
     }),
   ],
   module: {
@@ -23,7 +23,7 @@ module.exports = {
     ],
   },
   output: {
-   filename: '[name].bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
