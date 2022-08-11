@@ -47,10 +47,11 @@ function displayFirst() {
   const list = LocalStorage.getlist();
   list.forEach((task, index) => {
     Display.addList(task, task.id);
-    let nodeList = document.querySelectorAll('.displayP');
-    let elements = Array.from(nodeList);
-    if (task.bool)
+    const nodeList = document.querySelectorAll('.displayP');
+    const elements = Array.from(nodeList);
+    if (task.bool) {
       elements[index].classList.toggle('active');
+    }
   });
 }
 
