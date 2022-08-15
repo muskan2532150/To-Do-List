@@ -73,7 +73,8 @@ export default class Display {
       }
     });
     Display.changeindex(arr);
-    if ((Object.keys(List).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
+    console.log(Object.keys(List).length);
+    if ((Object.keys(arr).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
     localStorage.setItem('list', JSON.stringify(arr));
   }
 }
