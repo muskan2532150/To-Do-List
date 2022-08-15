@@ -1,17 +1,17 @@
 import Display from '../module/Display.js';
 import './style.css';
-import Tasks from '../module/Task.js';
 import LocalStorage from '../module/LocalStorage.js';
 
 const form = document.querySelector('.forms');
 const listContainer = document.querySelector('.showList');
+const clearbtn = document.querySelector('.clearBtn');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const des = document.getElementById('desc').value;
   const index = LocalStorage.idGenerator();
   const id = LocalStorage.idGenerator();
-  const task = new Tasks(des, index, id);
+  const task = { des, index, id };
   Display.addList(task, id);
   LocalStorage.addLocal(task);
   document.getElementById('desc').value = '';
@@ -33,12 +33,11 @@ listContainer.addEventListener('click', (e) => {
     });
   } else {
     // console.log( e.target.parentNode.previousSibling.firstChild.id); for
-    const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex(element => element === e.target.parentNode.parentNode);
-    Display.renameLocal(removebtn+1, e.target);
+    const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
+    Display.renameLocal(removebtn + 1, e.target);
   }
 });
 
-const clearbtn = document.querySelector('.clearBtn');
 clearbtn.addEventListener('click', () => {
   Display.clearAll();
   LocalStorage.clearLocal();
@@ -50,11 +49,11 @@ function displayFirst() {
     Display.addList(task, task.id);
     const nodeList = document.querySelectorAll('.displayP');
     const nodeListCheckbox = document.querySelectorAll('.mycheckbox');
-    const  elements =[...nodeList];
-   const checkBoxList = [...nodeListCheckbox];
+    const elements = [...nodeList];
+    const checkBoxList = [...nodeListCheckbox];
     if (task.bool) {
       elements[index].classList.toggle('active');
-       checkBoxList[index].setAttribute('checked','');
+      checkBoxList[index].setAttribute('checked', '');
     }
   });
 }

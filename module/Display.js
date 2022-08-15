@@ -1,8 +1,8 @@
 import LocalStorage from './LocalStorage.js';
 
-const listContainer = document.querySelector('.showList');
 export default class Display {
   static addList(task, id) {
+    const listContainer = document.querySelector('.showList');
     const div = document.createElement('div');
     const div1 = document.createElement('div');
     const input = document.createElement('input');
@@ -57,7 +57,7 @@ export default class Display {
 
   static changeindex(list) {
     list.forEach((task, i) => {
-      task.index = i+1;
+      task.index = i + 1;
     });
   }
 
@@ -69,4 +69,3 @@ export default class Display {
     document.querySelector('.clearBtn').style.display = 'none';
   }
 }
-
