@@ -63,9 +63,17 @@ export default class Display {
 
   static clearAll() {
     const List = document.querySelectorAll('.list');
-    List.forEach((list) => {
-      list.remove();
+    const tasks = LocalStorage.getlist();
+    const arr = [];
+    tasks.forEach((task, index) => {
+      if (task.bool) {
+        List[task.index - 1].remove();
+      } else {
+        arr.push(tasks[index]);
+      }
     });
-    document.querySelector('.clearBtn').style.display = 'none';
+    Display.changeindex(arr);
+    if ((Object.keys(List).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
+    localStorage.setItem('list', JSON.stringify(arr));
   }
 }

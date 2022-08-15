@@ -20,8 +20,4 @@ export default class LocalStorage {
     const id = task.length ? task[task.length - 1].index + 1 : 1;
     return id;
   }
-
-  static clearLocal() {
-    localStorage.clear();
-  }
 }

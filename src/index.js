@@ -1,6 +1,7 @@
 import Display from '../module/Display.js';
 import './style.css';
 import LocalStorage from '../module/LocalStorage.js';
+import Tasks from '../module/Task.js';
 
 const form = document.querySelector('.forms');
 const listContainer = document.querySelector('.showList');
@@ -11,7 +12,7 @@ form.addEventListener('submit', (e) => {
   const des = document.getElementById('desc').value;
   const index = LocalStorage.idGenerator();
   const id = LocalStorage.idGenerator();
-  const task = { des, index, id };
+  const task = new Tasks(des, index, id);
   Display.addList(task, id);
   LocalStorage.addLocal(task);
   document.getElementById('desc').value = '';
@@ -40,7 +41,6 @@ listContainer.addEventListener('click', (e) => {
 
 clearbtn.addEventListener('click', () => {
   Display.clearAll();
-  LocalStorage.clearLocal();
 });
 
 function displayFirst() {
