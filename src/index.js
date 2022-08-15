@@ -32,8 +32,9 @@ listContainer.addEventListener('click', (e) => {
       localStorage.setItem('list', JSON.stringify(list));
     });
   } else {
-    const removebtn = e.target.parentNode.previousSibling.firstChild.id;
-    Display.renameLocal(removebtn, e.target);
+    // console.log( e.target.parentNode.previousSibling.firstChild.id); for
+    const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex(element => element === e.target.parentNode.parentNode);
+    Display.renameLocal(removebtn+1, e.target);
   }
 });
 
@@ -48,9 +49,12 @@ function displayFirst() {
   list.forEach((task, index) => {
     Display.addList(task, task.id);
     const nodeList = document.querySelectorAll('.displayP');
-    const elements = Array.from(nodeList);
+    const nodeListCheckbox = document.querySelectorAll('.mycheckbox');
+    const  elements =[...nodeList];
+   const checkBoxList = [...nodeListCheckbox];
     if (task.bool) {
       elements[index].classList.toggle('active');
+       checkBoxList[index].setAttribute('checked','');
     }
   });
 }

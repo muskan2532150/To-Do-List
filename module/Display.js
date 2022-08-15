@@ -34,7 +34,7 @@ export default class Display {
   static renameLocal(id, e) {
     const list = LocalStorage.getlist();
     list.forEach((task, i) => {
-      if (task.id.toString() === id.toString()) {
+      if (task.index.toString() === id.toString()) {
         list.splice(i, 1);
         e.parentNode.parentNode.remove();
       }
@@ -57,7 +57,7 @@ export default class Display {
 
   static changeindex(list) {
     list.forEach((task, i) => {
-      task.index = i;
+      task.index = i+1;
     });
   }
 
@@ -69,3 +69,4 @@ export default class Display {
     document.querySelector('.clearBtn').style.display = 'none';
   }
 }
+
