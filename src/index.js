@@ -17,7 +17,7 @@ form.addEventListener('submit', (e) => {
   LocalStorage.addLocal(task);
   document.getElementById('desc').value = '';
 });
- 
+
 listContainer.addEventListener('click', (e) => {
   const eventClass = e.target.className;
   if (eventClass === 'mycheckbox') {
@@ -41,7 +41,7 @@ clearbtn.addEventListener('click', () => {
   Display.clearAll();
 });
 
- displayFirst =()=> {
+const displayFirst = () => {
   const list = LocalStorage.getlist();
   list.forEach((task, index) => {
     Display.addList(task, task.id);
