@@ -17,10 +17,9 @@ form.addEventListener('submit', (e) => {
   LocalStorage.addLocal(task);
   document.getElementById('desc').value = '';
 });
-
+ 
 listContainer.addEventListener('click', (e) => {
   const eventClass = e.target.className;
-
   if (eventClass === 'mycheckbox') {
     e.target.nextSibling.classList.toggle('active');
     Display.changebool(e.target.id);
@@ -33,7 +32,6 @@ listContainer.addEventListener('click', (e) => {
       localStorage.setItem('list', JSON.stringify(list));
     });
   } else {
-    // console.log( e.target.parentNode.previousSibling.firstChild.id); for
     const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
     Display.renameLocal(removebtn + 1, e.target);
   }
@@ -43,7 +41,7 @@ clearbtn.addEventListener('click', () => {
   Display.clearAll();
 });
 
-function displayFirst() {
+ displayFirst =()=> {
   const list = LocalStorage.getlist();
   list.forEach((task, index) => {
     Display.addList(task, task.id);
