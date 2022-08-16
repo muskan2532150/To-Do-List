@@ -54,6 +54,6 @@ const displayFirst = () => {
       checkBoxList[index].setAttribute('checked', '');
     }
   });
-}
+};
 
 displayFirst();
