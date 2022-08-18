@@ -38,6 +38,18 @@ To get a local copy up and running follow these simple example steps.
 ```
 npm install --save-dev jest
 ```
+Add the following section to your package.json:
+
+```
+
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+
+```
+
 ```
 npm test
 ```
