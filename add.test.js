@@ -26,16 +26,15 @@ import Display from './module/Display'
    }
 ]);
 
+const list = LocalStorage.getlist();
 describe('Add task in the list ', () => {
    const task2 = {
       description:'Second Task',
       index:2,
-      completed:false,
+      completed:true,
       id:2
      };
    it('Add a task in the array for localStorage ',()=>{
-    
-    const list = LocalStorage.getlist();
     list.push(task2);
     expect(list).toHaveLength(2);
    });
@@ -67,7 +66,23 @@ describe('Add task in the list ', () => {
   
 });
 
+describe('Check the completed status',()=>{
+   it('check the value to be true',()=>{
+      Display.changebool(1);
+          const info =JSON.parse(localStorage.getItem('list'));
+       expect(info[0].completed).toBe(true);
+   });
+})
 
 
+describe('clear All Complete',()=>{
+   it('Clear All complete',()=>{
+      Display.clearAll();
+      const info = JSON.parse(localStorage.getItem('list'));
+      expect(info.length).toBe(1);
+   })
+})
+
+describe('')
 
 
