@@ -20,7 +20,6 @@ form.addEventListener('submit', (e) => {
 
 listContainer.addEventListener('click', (e) => {
   const eventClass = e.target.className;
-
   if (eventClass === 'mycheckbox') {
     e.target.nextSibling.classList.toggle('active');
     Display.changebool(e.target.id);
@@ -33,9 +32,9 @@ listContainer.addEventListener('click', (e) => {
       localStorage.setItem('list', JSON.stringify(list));
     });
   } else {
-    // console.log( e.target.parentNode.previousSibling.firstChild.id); for
     const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
-    Display.renameLocal(removebtn + 1, e.target);
+    Display.deleteTask(removebtn + 1);
+    e.target.parentNode.parentNode.remove();
   }
 });
 
@@ -43,7 +42,7 @@ clearbtn.addEventListener('click', () => {
   Display.clearAll();
 });
 
-function displayFirst() {
+const displayFirst = () => {
   const list = LocalStorage.getlist();
   list.forEach((task, index) => {
     Display.addList(task, task.id);
@@ -56,6 +55,6 @@ function displayFirst() {
       checkBoxList[index].setAttribute('checked', '');
     }
   });
-}
+};
 
 displayFirst();

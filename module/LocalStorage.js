@@ -1,4 +1,4 @@
-export default class LocalStorage {
+class LocalStorage {
   static getlist() {
     let task;
     if (localStorage.getItem('list') === null) {
@@ -21,3 +21,5 @@ export default class LocalStorage {
     return id;
   }
 }
+
+module.exports = LocalStorage;
