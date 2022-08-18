@@ -74,6 +74,6 @@ export default class Display {
     if ((Object.keys(arr).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
     localStorage.setItem('list', JSON.stringify(arr));
   }
-};
+}
 
 // module.exports=Display;

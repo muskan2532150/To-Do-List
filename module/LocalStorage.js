@@ -1,4 +1,4 @@
- class LocalStorage {
+class LocalStorage {
   static getlist() {
     let task;
     if (localStorage.getItem('list') === null) {
@@ -22,4 +22,4 @@
   }
 }
 
-module.exports =LocalStorage;
+module.exports = LocalStorage;
