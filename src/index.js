@@ -19,7 +19,6 @@ form.addEventListener('submit', (e) => {
 });
 
 listContainer.addEventListener('click', (e) => {
-
   // Taking event target class
   const eventClass = e.target.className;
 
@@ -27,16 +26,12 @@ listContainer.addEventListener('click', (e) => {
   if (eventClass === 'mycheckbox') {
     e.target.nextSibling.classList.toggle('active');
     Display.changebool(e.target.id);
-  } 
-  // Check if the event is change input
-  else if (eventClass === 'displayP') {
+  } else if (eventClass === 'displayP') { // Check if the event is change input
     const eventinput = e.target.previousSibling.id;
     e.target.addEventListener('change', (e) => {
-      Display.UpdateInput(eventinput,e.target.value);
+      Display.UpdateInput(eventinput, e.target.value);
     });
-  } 
-  // check if the event is delete 
-  else {
+  } else { // check if the event is delete
     const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
     Display.deleteTask(removebtn + 1);
     e.target.parentNode.parentNode.remove();

@@ -75,7 +75,7 @@ export default class Display {
     localStorage.setItem('list', JSON.stringify(arr));
   }
 
-  static UpdateInput(id,value){
+  static UpdateInput(id, value) {
     const list = LocalStorage.getlist();
     list[id - 1].description = value;
     localStorage.setItem('list', JSON.stringify(list));

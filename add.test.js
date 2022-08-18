@@ -1,4 +1,4 @@
-/* eslint-disable */
+
  
  const { default: JSDOMEnvironment } = require('jest-environment-jsdom');
 const LocalStorage = require('./module/LocalStorage');
@@ -23,34 +23,35 @@ import Display from './module/Display'
     index:1,
     completed:false,
     id:1
-   }
-]);
-
-const list = LocalStorage.getlist();
-describe('Add task in the list ', () => {
-   const task2 = {
+   },
+   {
       description:'Second Task',
       index:2,
       completed:true,
       id:2
-     };
+   }
+]);
+
+const task2 = {
+   description:'Third Task',
+   index:3,
+   completed:false,
+   id:3
+  };
+
+  
+
+const list = LocalStorage.getlist();
+describe('Add task in the list ', () => {
+   
    it('Add a task in the array for localStorage ',()=>{
     list.push(task2);
-    expect(list).toHaveLength(2);
+    expect(list).toHaveLength(3);
    });
 
   it('delete a task in the array for localStorage',()=>{
-   LocalStorage.getlist = jest.fn(()=>[
-      {
-       description:'First Task',
-       index:1,
-       completed:false,
-       id:1
-      }
-   ]);
-   const list = LocalStorage.getlist();
    list.pop();
-   expect(list).toHaveLength(0);
+   expect(list).toHaveLength(2);
   });
 
   it('Add a task in DOM',()=>{
@@ -72,17 +73,34 @@ describe('Check the completed status',()=>{
           const info =JSON.parse(localStorage.getItem('list'));
        expect(info[0].completed).toBe(true);
    });
-})
+   it('check the value to be false',()=>{
+      Display.changebool(2);
+          const info =JSON.parse(localStorage.getItem('list'));
+       expect(info[1].completed).toBe(false);
+   });
+});
 
 
 describe('clear All Complete',()=>{
    it('Clear All complete',()=>{
+      const task3 = {
+         description:'Fourth Task',
+         index:4,
+         completed:true,
+         id:4
+        };
+      Display.addList(task2,1);
+      Display.addList(task3,2);
       Display.clearAll();
       const info = JSON.parse(localStorage.getItem('list'));
       expect(info.length).toBe(1);
    })
+});
+
+describe('check the update function',()=>{
+it('change the input',()=>{
+   Display.UpdateInput(1,'Hello Kwaleyela');
+   const info = JSON.parse(localStorage.getItem('list'));
+   expect(info[0].description).toBe('Hello Kwaleyela');
 })
-
-describe('')
-
-
+});
