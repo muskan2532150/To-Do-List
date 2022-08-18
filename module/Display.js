@@ -31,7 +31,7 @@ export default class Display {
     document.querySelector('.clearBtn').style.display = 'inline-block';
   }
 
-  static deteleTask(id) {
+  static deleteTask(id) {
     const list = LocalStorage.getlist();
     list.forEach((task, i) => {
       if (task.index.toString() === id.toString()) {
@@ -74,6 +74,10 @@ export default class Display {
     if ((Object.keys(arr).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
     localStorage.setItem('list', JSON.stringify(arr));
   }
-}
 
-// module.exports=Display;
+  static UpdateInput(id, value) {
+    const list = LocalStorage.getlist();
+    list[id - 1].description = value;
+    localStorage.setItem('list', JSON.stringify(list));
+  }
+}

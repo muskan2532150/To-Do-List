@@ -19,19 +19,19 @@ form.addEventListener('submit', (e) => {
 });
 
 listContainer.addEventListener('click', (e) => {
+  // Taking event target class
   const eventClass = e.target.className;
+
+  // Check if the event is checkbox
   if (eventClass === 'mycheckbox') {
     e.target.nextSibling.classList.toggle('active');
     Display.changebool(e.target.id);
-  } else if (eventClass === 'displayP') {
-    const list = LocalStorage.getlist();
+  } else if (eventClass === 'displayP') { // Check if the event is change input
     const eventinput = e.target.previousSibling.id;
-
     e.target.addEventListener('change', (e) => {
-      list[eventinput - 1].des = e.target.value;
-      localStorage.setItem('list', JSON.stringify(list));
+      Display.UpdateInput(eventinput, e.target.value);
     });
-  } else {
+  } else { // check if the event is delete
     const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
     Display.deleteTask(removebtn + 1);
     e.target.parentNode.parentNode.remove();
