@@ -1,6 +1,5 @@
  const { default: JSDOMEnvironment } = require('jest-environment-jsdom');
 const LocalStorage = require('./module/LocalStorage');
-// const Display = require('./module/Display') 
 import Display from './module/Display'
  /**
  * @jest-environment jsdom
