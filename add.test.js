@@ -1,3 +1,5 @@
+/* eslint-disable */
+ 
  const { default: JSDOMEnvironment } = require('jest-environment-jsdom');
 const LocalStorage = require('./module/LocalStorage');
 import Display from './module/Display'
