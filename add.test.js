@@ -53,6 +53,16 @@ describe('Add task in the list ', () => {
    expect(list).toHaveLength(0);
   });
 
+  it('Add a task in DOM',()=>{
+   Display.addList(task2,1);
+   const divlist = document.querySelectorAll('.showList > div');
+   expect(divlist).toHaveLength(1);
+  });
+  it('Delete a task in DOM',()=>{
+   Display.deteleTask(2);
+   const divlist = document.querySelectorAll('.showList > div');
+   expect(divlist).toHaveLength(1);
+  });
   
 });
 
