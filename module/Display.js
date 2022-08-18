@@ -1,6 +1,6 @@
 import LocalStorage from './LocalStorage.js';
 
-export default class Display {
+class Display {
   static addList(task, id) {
     const listContainer = document.querySelector('.showList');
     const div = document.createElement('div');
@@ -14,7 +14,7 @@ export default class Display {
     input.setAttribute('class', 'mycheckbox');
     input.setAttribute('id', id);
     input1.setAttribute('class', 'displayP');
-    input1.setAttribute('value', task.des);
+    input1.setAttribute('value', task.description);
     input1.setAttribute('type', 'text');
     input1.setAttribute('required', '');
     button.setAttribute('class', 'list-btn ');
@@ -49,7 +49,7 @@ export default class Display {
     const list = LocalStorage.getlist();
     list.forEach((task) => {
       if (task.id.toString() === id.toString()) {
-        task.bool = !task.bool;
+        task.completed = !task.completed;
       }
     });
     localStorage.setItem('list', JSON.stringify(list));
@@ -66,7 +66,7 @@ export default class Display {
     const tasks = LocalStorage.getlist();
     const arr = [];
     tasks.forEach((task, index) => {
-      if (task.bool) {
+      if (task.completed) {
         List[task.index - 1].remove();
       } else {
         arr.push(tasks[index]);
@@ -76,4 +76,6 @@ export default class Display {
     if ((Object.keys(arr).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
     localStorage.setItem('list', JSON.stringify(arr));
   }
-}
+};
+
+module.exports=Display;
