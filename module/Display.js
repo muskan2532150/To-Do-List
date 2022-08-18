@@ -31,7 +31,7 @@ export default class Display {
     document.querySelector('.clearBtn').style.display = 'inline-block';
   }
 
-  static deteleTask(id) {
+  static deleteTask(id) {
     const list = LocalStorage.getlist();
     list.forEach((task, i) => {
       if (task.index.toString() === id.toString()) {
@@ -75,5 +75,9 @@ export default class Display {
     localStorage.setItem('list', JSON.stringify(arr));
   }
 
-  static UpdateDisplay(id,)
+  static UpdateInput(id,value){
+    const list = LocalStorage.getlist();
+    list[id - 1].description = value;
+    localStorage.setItem('list', JSON.stringify(list));
+  }
 }
