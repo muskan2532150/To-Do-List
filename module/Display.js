@@ -1,6 +1,6 @@
 import LocalStorage from './LocalStorage.js';
 
-class Display {
+export default class Display {
   static addList(task, id) {
     const listContainer = document.querySelector('.showList');
     const div = document.createElement('div');
@@ -31,16 +31,14 @@ class Display {
     document.querySelector('.clearBtn').style.display = 'inline-block';
   }
 
-  static renameLocal(id, e) {
+  static deteleTask(id) {
     const list = LocalStorage.getlist();
     list.forEach((task, i) => {
       if (task.index.toString() === id.toString()) {
         list.splice(i, 1);
-        e.parentNode.parentNode.remove();
       }
     });
     Display.changeindex(list);
-
     if ((Object.keys(list).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
     localStorage.setItem('list', JSON.stringify(list));
   }
@@ -78,4 +76,4 @@ class Display {
   }
 };
 
-module.exports=Display;
+// module.exports=Display;

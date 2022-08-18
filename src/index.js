@@ -33,7 +33,8 @@ listContainer.addEventListener('click', (e) => {
     });
   } else {
     const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
-    Display.renameLocal(removebtn + 1, e.target);
+    Display.deleteTask(removebtn + 1);
+    e.target.parentNode.parentNode.remove();
   }
 });
 
