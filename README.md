@@ -68,6 +68,8 @@ npm test
 - Twitter: [@K_Ikafa](https://twitter.com/K_Ikafa)
 - LinkedIn: [LinkedIn](https://zm.linkedin.com/in/kwaleyela-musilizo-ikafa-abaa1a20b?trk=people-guest_people_search-card)
 
+![Your Repository's Stats](https://contrib.rocks/image?repo=muskan2532150/To-Do-List)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
