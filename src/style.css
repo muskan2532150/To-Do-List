@@ -42,6 +42,7 @@ input,
 input {
   padding: 25px;
   font-size: 25px;
+  pointer-events: visible;
 }
 
 input::placeholder {
@@ -52,6 +53,11 @@ input::placeholder {
 .form-btn,
 .list-btn {
   background: transparent;
+  pointer-events: visible;
+}
+
+.showList {
+  pointer-events: none;
 }
 
 .list {

@@ -19,19 +19,16 @@ form.addEventListener('submit', (e) => {
 });
 
 listContainer.addEventListener('click', (e) => {
-  // Taking event target class
   const eventClass = e.target.className;
-
-  // Check if the event is checkbox
   if (eventClass === 'mycheckbox') {
     e.target.nextSibling.classList.toggle('active');
     Display.changebool(e.target.id);
-  } else if (eventClass === 'displayP') { // Check if the event is change input
+  } else if (eventClass === 'displayP') {
     const eventinput = e.target.previousSibling.id;
     e.target.addEventListener('change', (e) => {
       Display.UpdateInput(eventinput, e.target.value);
     });
-  } else { // check if the event is delete
+  } else {
     const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
     Display.deleteTask(removebtn + 1);
     e.target.parentNode.parentNode.remove();
@@ -50,7 +47,7 @@ const displayFirst = () => {
     const nodeListCheckbox = document.querySelectorAll('.mycheckbox');
     const elements = [...nodeList];
     const checkBoxList = [...nodeListCheckbox];
-    if (task.bool) {
+    if (task.completed) {
       elements[index].classList.toggle('active');
       checkBoxList[index].setAttribute('checked', '');
     }

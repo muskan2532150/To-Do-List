@@ -77,7 +77,9 @@ export default class Display {
 
   static UpdateInput(id, value) {
     const list = LocalStorage.getlist();
-    list[id - 1].description = value;
+    [...list].forEach((el) => {
+      if (el.id.toString() === id.toString()) { list[el.index - 1].description = value; }
+    });
     localStorage.setItem('list', JSON.stringify(list));
   }
 }

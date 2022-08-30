@@ -17,6 +17,12 @@ class LocalStorage {
 
   static idGenerator() {
     const task = LocalStorage.getlist();
+    const id = task.length ? task[task.length - 1].id + 1 : 1;
+    return id;
+  }
+
+  static indexGenerator() {
+    const task = LocalStorage.getlist();
     const id = task.length ? task[task.length - 1].index + 1 : 1;
     return id;
   }

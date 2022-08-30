@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Display from './module/Display.js';
 
-const { default: JSDOMEnvironment } = require('jest-environment-jsdom');
 const LocalStorage = require('./module/LocalStorage.js');
 /**
  * @jest-environment jsdom
