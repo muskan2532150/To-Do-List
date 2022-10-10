@@ -33,14 +33,15 @@ export default class Display {
 
   static deleteTask(id) {
     const list = LocalStorage.getlist();
-    list.forEach((task, i) => {
-      if (task.index.toString() === id.toString()) {
-        list.splice(i, 1);
-      }
+    const lists = list.filter((task) => {
+      if (task.id.toString() !== id.toString()) {
+        return true;
+      } return false;
     });
-    Display.changeindex(list);
-    if ((Object.keys(list).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
-    localStorage.setItem('list', JSON.stringify(list));
+    
+    Display.changeindex(lists);
+    if ((Object.keys(lists).length) === 0) document.querySelector('.clearBtn').style.display = 'none';
+    localStorage.setItem('list', JSON.stringify(lists));
   }
 
   static changebool(id) {

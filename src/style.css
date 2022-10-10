@@ -81,6 +81,10 @@ i,
   font-size: 25px;
 }
 
+.list-btn i {
+  cursor: pointer;
+}
+
 .active {
   text-decoration: line-through;
   color: #d3d3d3;
@@ -98,54 +102,53 @@ i,
   text-transform: uppercase;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   main {
     width: 60%;
   }
 
-h1 {
-  font-size: 20px;
-  line-height: 28px;
-}
+  h1 {
+    font-size: 20px;
+    line-height: 28px;
+  }
 
   input {
     width: 100%;
   }
 
   i,
-.form-btn {
-  font-size: 15px;
-}
+  .form-btn {
+    font-size: 15px;
+  }
 
-input::placeholder {
-  font-size: 13px;
-}
+  input::placeholder {
+    font-size: 13px;
+  }
 
-.list >div {
-  display: flex;
-  padding-top: 12px;
-}
+  .list > div {
+    display: flex;
+    padding-top: 12px;
+  }
 
-.mycheckbox {
-  padding: 0;
+  .mycheckbox {
+    padding: 0;
     font-size: 14px;
     width: auto;
     margin-right: 6px;
-}
+  }
 
-.displayP {
-  padding: 0;
-  text-overflow: ellipsis;
-}
+  .displayP {
+    padding: 0;
+    text-overflow: ellipsis;
+  }
 
-.list-btn{
-  padding-top: 12px;
+  .list-btn {
+    padding-top: 12px;
     margin-left: 5px;
-}
+  }
 
-.clearBtn {
-  font-size: 12px;
+  .clearBtn {
+    font-size: 12px;
     font-weight: 500;
+  }
 }
-}
-

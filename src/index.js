@@ -29,8 +29,8 @@ listContainer.addEventListener('click', (e) => {
       Display.UpdateInput(eventinput, e.target.value);
     });
   } else {
-    const removebtn = [...document.querySelectorAll('.showList > .list')].findIndex((element) => element === e.target.parentNode.parentNode);
-    Display.deleteTask(removebtn + 1);
+    const removebtn = e.target.parentNode.previousSibling.firstChild.id;
+    Display.deleteTask(removebtn);
     e.target.parentNode.parentNode.remove();
   }
 });
